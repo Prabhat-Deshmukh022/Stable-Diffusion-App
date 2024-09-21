@@ -1,7 +1,7 @@
 A simple stable diffusion app created using React.js for the frontend and fastapi in the backend.
 
 The stable diffusion code for accepting the prompt and creating an image is in the backend, the stable diffusion model is taken from hugging face. 
-Github repo for the same - (Repository)[https://github.com/CompVis/stable-diffusion].
+Github repo for the same - [Repository](https://github.com/CompVis/stable-diffusion).
 
 All the app does is send a prompt from the frontend to the backend, where the prompt is passed into a Stable diffusion pipeline and an image is generated.
 
@@ -20,5 +20,5 @@ CREDITS -
 
 Huge thanks to Nicolas Renotte for making a tutorial on the same!
 
-(YouTube)[https://www.youtube.com/c/nicholasrenotte]
-(Github)[https://github.com/nicknochnack]
+[YouTube](https://www.youtube.com/c/nicholasrenotte)
+[Github](https://github.com/nicknochnack)
