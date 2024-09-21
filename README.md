@@ -1,22 +1,31 @@
-A simple stable diffusion app created using React.js for the frontend and fastapi in the backend.
+**Simple Stable Diffusion App**
 
-The stable diffusion code for accepting the prompt and creating an image is in the backend, the stable diffusion model is taken from hugging face. 
-Github repo for the same - [Repository](https://github.com/CompVis/stable-diffusion).
+This project is a simple Stable Diffusion application that utilizes React.js for the frontend and FastAPI for the backend. The Stable Diffusion model is sourced from Hugging Face.
 
-All the app does is send a prompt from the frontend to the backend, where the prompt is passed into a Stable diffusion pipeline and an image is generated.
+**Features -**
+Accepts text prompts from the frontend.
+Generates images using the Stable Diffusion model.
+Returns images encoded in Base64 for easy rendering.
 
-This image is then encoded using Base64 (ASCII characters), which is one of the ways to send images over JSON protocol that can handle only text. The image is a Base64 encoded PNG file basically.
+**How It Works -**
 
-When the frontend receives this image (GET request using axios to the fastapi url), it is rendered as "<Image src={`data:image/png;base64,${image}`} boxShadow="lg" />" where we specify that
-the following data is a PNG image encoded as Base64.
+Backend: The FastAPI backend accepts prompts from the frontend. The prompts are processed by a Stable Diffusion pipeline, which generates an image based on the input.
+
+Model Caching: The Stable Diffusion model is loaded from Hugging Face. To use the model, you need to obtain an authentication token from your Hugging Face account. Once the backend code is run locally for the first time, the model gets cached, allowing you to remove the auth token safely afterward.
+
+Image Encoding: The generated image is encoded in Base64 (ASCII characters), which allows it to be sent over the JSON protocol, as JSON can only handle text. The final output is a Base64-encoded PNG file.
+
+Frontend: The frontend uses Axios to send a GET request to the FastAPI backend, receiving the Base64-encoded image. The image is then rendered using the following code:
+
+<Image src={`data:image/png;base64,${image}`} boxShadow="lg" />
 
 It's that simple!
 
-NOTE -
+**NOTE -** 
 
 I have used cpu to run this locally as I do not have CUDA installed, but when using gpu the values passed to the Stable diffusion pipeline will differ, please make the appropriate changes if using gpu.
 
-CREDITS - 
+**CREDITS -** 
 
 Huge thanks to Nicolas Renotte for making a tutorial on the same!
 
